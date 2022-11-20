@@ -1,0 +1,31 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+dataset = sns.load_dataset('titanic')
+print(dataset.head())
+
+#Ploting Histogram Matplotlib
+#I.The Dist Plot
+#sns.distplot(dataset['fare'])
+
+#sns.distplot(dataset['fare'], kde=False)
+
+sns.distplot(dataset['fare'], kde=False, bins=10)
+
+#II. The Joint Plot :
+#sns.jointplot(x='age', y='fare', data=dataset)
+
+sns.jointplot(x='age', y='fare', data=dataset, kind='hex')
+plt.show()
+
+"""
+#III. The Pair Plot :
+sns.pairplot(dataset)
+
+dataset = dataset.dropna()
+
+sns.pairplot(dataset, hue='sex')"""
+
+#IV. The Rug Plot
+sns.rugplot(dataset['fare'])
